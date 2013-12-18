@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon
+  id="pvr.wmc"
+  version="0.2.92"
+  name="Windows Media Center Client"
+  provider-name="KrustyReturns">
+  <requires>
+    <c-pluff version="0.1"/>
+    <import addon="xbmc.pvr" version="1.9.0"/>
+  </requires>
+  <extension
+    point="xbmc.pvrclient"
+    library_linux="pvr.wmc.so"/>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">WMC PVR Client</summary>
+    <description lang="en">An xbmc client to interface to Windows Media Center's record and EPG service.  Thanks to JeffreyF, Tomba73, Riztnack, Staknhalo, Scarecrow420, Hoopsdavis, TheImmortal.  Special thanks to DBurckh.</description>
+    <disclaimer lang="en">This is experimental software. Use at your own risk.</disclaimer>
+    <platform>all</platform>
+  </extension>
+</addon>

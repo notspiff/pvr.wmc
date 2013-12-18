@@ -1,0 +1,24 @@
+Source: xbmc-pvr-wmc
+Priority: extra
+Maintainer: Arne Morten Kvarving <arne.morten.kvarving@sintef.no>
+Build-Depends: debhelper (>= 8.0.0), cmake, xbmc-pvr-dev,
+               libxbmcplatform-dev, xbmc-addon-dev
+Standards-Version: 3.9.2
+Section: libs
+
+Package: xbmc-pvr-wmc
+Section: libs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Conflicts: xbmc-pvr-tvheadend-hts
+Replaces: xbmc-pvr-tvheadend-hts
+Description: WMC PVR for XBMC
+ WMC PVR for XBMC
+
+Package: xbmc-pvr-wmc-dbg
+Section: libs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: debugging symbols for WMC PVR for XBMC
+ debugging symbols for WMC PVR for XBMC
+
