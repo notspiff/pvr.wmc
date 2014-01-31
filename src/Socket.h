@@ -86,7 +86,7 @@ enum SocketFamily
 
 enum SocketDomain
 {
-  #if defined TARGET_LINUX || defined TARGET_DARWIN
+  #if defined TARGET_LINUX || defined TARGET_DARWIN || defined TARGET_FREEBSD
     pf_unix  = PF_UNIX,
     pf_local = PF_LOCAL,
   #endif
@@ -264,11 +264,11 @@ class Socket
 		void SetServerName(CStdString strServerName);
 		void SetClientName(CStdString strClientName);
 		void SetServerPort(int port);
-		std::vector<CStdString> GetVector(const CStdString &request);
-		CStdString GetString(const CStdString &request);
-		bool GetBool(const CStdString &request);
-		int GetInt(const CStdString &request);
-		long long GetLL(const CStdString &request);
+		std::vector<CStdString> GetVector(const CStdString &request, bool allowRetry);
+		CStdString GetString(const CStdString &request, bool allowRetry);
+		bool GetBool(const CStdString &request, bool allowRetry);
+		int GetInt(const CStdString &request, bool allowRetry);
+		long long GetLL(const CStdString &request, bool allowRetry);
 
 		void SetTimeOut(int tSec);
 };
