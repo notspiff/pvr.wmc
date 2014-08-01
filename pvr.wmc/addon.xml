@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addon
   id="pvr.wmc"
-  version="0.2.97"
+  version="0.3.99"
   name="Windows Media Center Client"
   provider-name="KrustyReturns">
   <requires>
