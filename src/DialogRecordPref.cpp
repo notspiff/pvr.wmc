@@ -20,7 +20,7 @@
  */
 
 #include "DialogRecordPref.h"
-#include "xbmc/libXBMC_gui.h"
+#include "kodi/libXBMC_gui.h"
 
 #define BUTTON_OK                       1
 #define BUTTON_CANCEL                   2

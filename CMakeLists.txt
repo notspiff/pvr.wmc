@@ -4,11 +4,11 @@ cmake_minimum_required(VERSION 2.6)
 
 enable_language(CXX)
 
-find_package(xbmc REQUIRED)
-find_package(xbmcplatform REQUIRED)
+find_package(kodi REQUIRED)
+find_package(kodiplatform REQUIRED)
 
-include_directories(${xbmcplatform_INCLUDE_DIRS}
-                    ${XBMC_INCLUDE_DIR})
+include_directories(${KODIPLATFORM_INCLUDE_DIRS}
+                    ${KODI_INCLUDE_DIR})
 
 add_definitions(-DUSE_DEMUX)
 
@@ -19,7 +19,7 @@ set(WMC_SOURCES src/client.cpp
                 src/Socket.cpp
                 src/utilities.cpp)
 
-set(DEPLIBS ${xbmcplatform_LIBRARIES})
+set(DEPLIBS ${KODIPLATFORM_LIBRARIES})
 
 build_addon(pvr.wmc WMC DEPLIBS)
 
