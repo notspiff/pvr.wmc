@@ -11,7 +11,8 @@
   </requires>
   <extension
     point="xbmc.pvrclient"
-    library_linux="pvr.wmc.so"/>
+    library_linux="pvr.wmc.so"
+    library_windx="pvr.wmc.dll"/>
   <extension point="xbmc.addon.metadata">
     <summary lang="en">WMC PVR Client</summary>
     <description lang="en">An xbmc client to interface to Windows Media Center's record and EPG service.  Thanks to JeffreyF, Tomba73, Riztnack, Staknhalo, Scarecrow420, Hoopsdavis, TheImmortal.  Special thanks to DBurckh.</description>
