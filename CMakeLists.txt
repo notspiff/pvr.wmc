@@ -20,6 +20,9 @@ set(WMC_SOURCES src/client.cpp
                 src/utilities.cpp)
 
 set(DEPLIBS ${KODIPLATFORM_LIBRARIES})
+if (WIN32)
+  list(APPEND DEPLIBS ws2_32)
+endif()
 
 build_addon(pvr.wmc WMC DEPLIBS)
 
