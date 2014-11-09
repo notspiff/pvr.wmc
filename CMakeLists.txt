@@ -7,7 +7,7 @@ enable_language(CXX)
 find_package(kodi REQUIRED)
 find_package(kodiplatform REQUIRED)
 
-include_directories(${KODIPLATFORM_INCLUDE_DIRS}
+include_directories(${kodiplatform_INCLUDE_DIRS}
                     ${KODI_INCLUDE_DIR})
 
 add_definitions(-DUSE_DEMUX)
@@ -19,7 +19,7 @@ set(WMC_SOURCES src/client.cpp
                 src/Socket.cpp
                 src/utilities.cpp)
 
-set(DEPLIBS ${KODIPLATFORM_LIBRARIES})
+set(DEPLIBS ${kodiplatform_LIBRARIES})
 if (WIN32)
   list(APPEND DEPLIBS ws2_32)
 endif()
