@@ -1176,7 +1176,7 @@ long long Pvr2Wmc::ActualFileSize(int count)
 }
 
 // return the length of the current stream file
-long long Pvr2Wmc::LengthLiveStream(void) 
+long long Pvr2Wmc::LengthLiveStream(void)
 {
 	if (_insertDurationHeader)			// if true, return a fake file 2Mb length to xbmc, this makes xbmc try to determine
 		return FAKE_TS_LENGTH;			// the ts time duration giving us a chance to insert the real duration
@@ -1276,6 +1276,7 @@ bool Pvr2Wmc::OpenRecordedStream(const PVR_RECORDING &recording)
 		_lostStream = false;						// stream is open
 		_lastStreamSize = 0;						// current size is empty
 		_isStreamFileGrowing = true;				// initially assume its growing
+		ActualFileSize(0);							// get initial file size from swmc, also tells it file was opened successfully
 
 		// Initialise variables for starting stream at an offset (only used for live streams)
 		_initialStreamResetCnt = 0;
