@@ -1,4 +1,11 @@
-﻿0.4.003
+0.5.0
+- Updated to PVR API v1.9.4
+- Updated to GUI API v5.8.0
+
+0.4.4
+- Updated Language files from Transifex
+
+0.4.003
 - Revise previous ServerWMC stream stuttering fix
 
 0.4.002

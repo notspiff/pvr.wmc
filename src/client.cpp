@@ -322,6 +322,7 @@ extern "C" {
 	{
 		pCapabilities->bSupportsEPG                = true;
 		pCapabilities->bSupportsRecordings         = true;
+                pCapabilities->bSupportsRecordingsUndelete = false;
 		pCapabilities->bSupportsTimers             = true;
 		pCapabilities->bSupportsTV                 = true;
 		pCapabilities->bSupportsRadio              = false;
@@ -476,14 +477,14 @@ extern "C" {
 	}
 
 	// recording file functions
-	PVR_ERROR GetRecordings(ADDON_HANDLE handle) 
+PVR_ERROR GetRecordings(ADDON_HANDLE handle, bool deleted)
 	{ 
 		if (_wmc)
 			return _wmc->GetRecordings(handle);
 		return PVR_ERROR_NO_ERROR;
 	}
 
-	int GetRecordingsAmount(void) 
+	int GetRecordingsAmount(bool deleted)
 	{ 
 		if (_wmc)
 			return _wmc->GetRecordingsAmount();
@@ -681,12 +682,12 @@ extern "C" {
 	}
 
 	/** UNUSED API FUNCTIONS */
-	PVR_ERROR DialogChannelScan(void) { return PVR_ERROR_NOT_IMPLEMENTED; }
+PVR_ERROR OpenDialogChannelScan(void) { return PVR_ERROR_NOT_IMPLEMENTED; }
 	PVR_ERROR DeleteChannel(const PVR_CHANNEL &channel) { return PVR_ERROR_NOT_IMPLEMENTED; }
 	PVR_ERROR RenameChannel(const PVR_CHANNEL &channel) { return PVR_ERROR_NOT_IMPLEMENTED; }
 	PVR_ERROR MoveChannel(const PVR_CHANNEL &channel) { return PVR_ERROR_NOT_IMPLEMENTED; }
-	PVR_ERROR DialogChannelSettings(const PVR_CHANNEL &channel)  {  return PVR_ERROR_NOT_IMPLEMENTED;  }
-	PVR_ERROR DialogAddChannel(const PVR_CHANNEL &channel) { return PVR_ERROR_NOT_IMPLEMENTED; }
+PVR_ERROR OpenDialogChannelSettings(const PVR_CHANNEL &channel)  {  return PVR_ERROR_NOT_IMPLEMENTED;  }
+PVR_ERROR OpenDialogChannelAdd(const PVR_CHANNEL &channel) { return PVR_ERROR_NOT_IMPLEMENTED; }
 	void DemuxReset(void) {}
 	void DemuxFlush(void) {}
 	void DemuxAbort(void) {}
@@ -699,5 +700,7 @@ extern "C" {
 	time_t GetPlayingTime() { return 0; }
 	time_t GetBufferTimeStart() { return 0; }
 	time_t GetBufferTimeEnd() { return 0; }
+PVR_ERROR UndeleteRecording(const PVR_RECORDING& recording) { return PVR_ERROR_NOT_IMPLEMENTED; }
+PVR_ERROR DeleteAllRecordingsFromTrash() { return PVR_ERROR_NOT_IMPLEMENTED; }
 
 }
