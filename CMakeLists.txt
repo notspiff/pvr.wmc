@@ -27,7 +27,15 @@ endif()
 
 build_addon(pvr.wmc WMC DEPLIBS)
 
-configure_file(${PROJECT_SOURCE_DIR}/src/clientversion.h.in
-               ${CMAKE_BINARY_DIR}/clientversion.h @ONLY)
+add_custom_target(OUTPUT ${CMAKE_BINARY_DIR}/clientversion.h
+                  COMMAND ${CMAKE_COMMAND}
+                          -DPROJECT_SOURCE_DIR=${PROJECT_SOURCE_DIR}
+                          -DCMAKE_BINARY_DIR=${CMAKE_BINARY_DIR}
+                          -P generateversionedfile.cmake
+                  DEPENDS ${PROJECT_SOURCE_DIR}/src/clientversion.h.in
+                          ${PROJECT_SOURCE_DIR}/pvr.wmc/addon.xml)
+
+add_custom_target(generate-versioned-files DEPENDS ${CMAKE_BINARY_DIR}/clientversion.h)
+add_dependencies(pvr.wmc generate-versioned-files)
 
 include(CPack)
