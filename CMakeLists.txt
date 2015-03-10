@@ -8,7 +8,8 @@ find_package(kodi REQUIRED)
 find_package(kodiplatform REQUIRED)
 
 include_directories(${kodiplatform_INCLUDE_DIRS}
-                    ${KODI_INCLUDE_DIR})
+                    ${KODI_INCLUDE_DIR}
+                    ${CMAKE_BINARY_DIR})
 
 add_definitions(-DUSE_DEMUX)
 
@@ -25,5 +26,8 @@ if (WIN32)
 endif()
 
 build_addon(pvr.wmc WMC DEPLIBS)
+
+configure_file(${PROJECT_SOURCE_DIR}/src/clientversion.h.in
+               ${CMAKE_BINARY_DIR}/clientversion.h @ONLY)
 
 include(CPack)
